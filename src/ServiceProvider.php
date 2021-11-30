@@ -9,7 +9,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     public function boot()
     {
         $this->publishes([
-            self::CONFIG_PATH => config_path('file-handler.php'),
+            self::CONFIG_PATH => app()->basePath() . '/config/file-handler.php',
         ], 'config');
     }
 
