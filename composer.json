@@ -1,0 +1,50 @@
+{
+  "name": "yasinkose/file-handler",
+  "description": "A file handler",
+  "license": "MIT",
+  "keywords": [
+    "file",
+    "handler"
+  ],
+  "type": "library",
+  "authors": [
+    {
+      "name": "Yasin Köse",
+      "email": "yasin.kose.123@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "illuminate/support": "^6.0|^7.0|^8.0",
+    "ixudra/curl": "^6.22"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^4.0|^5.0|^6.0",
+    "phpunit/phpunit": "^8.4|^9.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "YasinKose\\FileHandler\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "YasinKose\\FileHandler\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "phpunit": "phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "YasinKose\\FileHandler\\ServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}
