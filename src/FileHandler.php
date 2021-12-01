@@ -4,7 +4,7 @@ namespace YasinKose\FileHandler;
 
 use Exception;
 use Illuminate\Http\UploadedFile;
-use Ixudra\Curl\Facades\Curl;
+use Ixudra\Curl\CurlService;
 
 class FileHandler
 {
@@ -14,11 +14,22 @@ class FileHandler
     /** @var resource $fileList cURL file list */
     protected $fileList = null;
 
+    /**
+     * @throws Exception
+     */
     public function __construct()
     {
-        $url = trim(config("file-handler.server-url"), "/") . "/file/upload";
+        if (empty($url = config("file-handler.server-url"))) {
+            if (config("app.debug")) {
+                throw new Exception("Please add required parameters in .env");
+            }
 
-        $this->curlObject = Curl::to($url)
+            return false;
+        }
+
+        $url = trim($url, "/") . "/file/upload";
+
+        $this->curlObject = (new CurlService())->to($url)
             ->withData([
                 'apiKey' => config("file-handler.api-key")
             ])
