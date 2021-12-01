@@ -20,8 +20,17 @@ composer require yasinkose/file-handler
 
 ## Publish package assets
 
+If you are using **Laravel** run this command
+
 ```bash
 php artisan vendor:publish --provider="YasinKose\FileHandler\ServiceProvider"
+```
+
+or if you're using **Lumen**, Add the following snippet to the ```bootstrap/app.php``` file under the providers section
+as follows:
+
+```php
+$app->register(YasinKose\FileHandler\ServiceProvider::class);
 ```
 
 ## Usage
@@ -36,6 +45,13 @@ OR
 
 ```php
 FileHandler::addFile($request->allFiles())->sendFile();
+```
+
+OR
+
+```php
+$file = new FileHandler();
+$file->sendFile($request->allFiles());
 ```
 
 Here's the response you'll get
