@@ -15,6 +15,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         }
 
         $this->mergeConfigFrom(self::CONFIG_PATH, 'file-handler');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 
     public function register()
