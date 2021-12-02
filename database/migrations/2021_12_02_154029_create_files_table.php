@@ -11,8 +11,8 @@ class CreateFilesTable extends Migration
         Schema::create(config("file-handler.table-name"), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("slug");
-            $table->morphs("filable");
-            $table->foreignId("created_by")->constrained("users");
+            $table->morphs("filedable");
+            $table->unsignedBigInteger("created_by")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
