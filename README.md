@@ -18,6 +18,14 @@ Install via composer
 composer require yasinkose/file-handler
 ```
 
+Add the following to your .env file
+
+```script
+FILE_HANDLER_URL=https://***.com/
+FILE_HANDLER_API_KEY=api_key
+FILE_HANDLER_TABLE_NAME=files
+```
+
 ## Publish package assets
 
 If you are using **Laravel** run this command
