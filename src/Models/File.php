@@ -1,19 +1,24 @@
 <?php
 
-namespace YasinKose\FileHandler\Models\File;
+namespace YasinKose\FileHandler\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class File extends Model
 {
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'slug',
-        'filable_type',
-        'filable_id',
         'created_by',
     ];
 
-    public function filable()
+    /**
+     * @return MorphTo
+     */
+    public function filedable(): MorphTo
     {
         return $this->morphTo();
     }
